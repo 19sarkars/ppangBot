@@ -43,7 +43,7 @@ async def bbangtan(ctx):
     response = requests.get('https://bts-quotes-api.herokuapp.com/quote/random')
     quote = response.json()["quote"]
     member = response.json()["member"]
-    await ctx.send('*{}*\n{}'.format(quote, member))
+    await ctx.send('*{}*\n-{}'.format(quote, member))
     
 @bot.command(description="help command for ppangBot")
 async def help(ctx):
