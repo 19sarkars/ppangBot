@@ -79,7 +79,7 @@ async def help(ctx):
     for command in bot.walk_commands():
         description = command.description
         if not description or description is None or description == "":
-            description = "No description provided"
+            description = "its a mystery!"
         embed.add_field(name=f"'?{command.name}{command.signature if command.signature is not None else ''}'", value=description)
     await ctx.send(embed=embed)
     
