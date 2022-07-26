@@ -38,6 +38,13 @@ async def bread(ctx):
     response = requests.get("https://my-bao-server.herokuapp.com/api/breadpuns")
     await ctx.send(response.text[1:-1])
     
+@bot.command(name="ppangtan", description="sends an inspirational bts quote")
+async def bbangtan(ctx):
+    response = requests.get('https://bts-quotes-api.herokuapp.com/quote/random')
+    quote = response.json()["quote"]
+    member = response.json()["member"]
+    await ctx.send('*{}*\n{}'.format(quote, member))
+    
 @bot.command(description="help command for ppangBot")
 async def help(ctx):
     embed = nextcord.Embed(title='ppangBot commands 🍞', description="help command for ppangBot")
