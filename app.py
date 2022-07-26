@@ -37,6 +37,11 @@ async def cat(ctx):
     link2img = json.loads(requests.get('http://aws.random.cat/meow').content)["file"]
     await ctx.send(link2img)
     
+@bot.command(name="morb", description="its morbin time")
+async def morb(ctx):
+    await ctx.send("it's morbin time!\n")
+    await ctx.send("https://i.pinimg.com/originals/40/1a/57/401a577ead6776c2101d0f78acd90681.gif")
+    
 @bot.command(name="pun", description="sends a neat pun")
 async def bread(ctx):
     response = requests.get("https://my-bao-server.herokuapp.com/api/breadpuns")
