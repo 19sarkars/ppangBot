@@ -26,6 +26,10 @@ async def bread(ctx):
 async def bread(ctx):
     await ctx.send('🗿')
     
+@bot.command(name="313")
+async def beomgyu(ctx):
+    await ctx.send(random.choice(responses["beomgyu"]))
+    
 @bot.command(name="doggo", description="sends a random dog pic")
 async def dog(ctx):
     response = requests.get("https://dog.ceo/api/breeds/image/random")
