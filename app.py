@@ -22,7 +22,7 @@ async def sayHi(ctx):
 async def bread(ctx):
     await ctx.send('🍞')
     
-@bot.command(name="moyai", description="sends you moyai")
+@bot.command(name="moyai", description="judges you")
 async def bread(ctx):
     await ctx.send('🗿')
     
@@ -52,7 +52,7 @@ async def bbangtan(ctx):
 @bot.command(name="genshin", description="rolls a random genshin character")
 async def genshin(ctx):
     response = requests.get('https://genshin-app-api.herokuapp.com/api/characters?infoDataSize=[all/minimal]')
-    characters = json.loads(response.json())
+    characters = response.json()["payload"]["characters"]
     character = random.choice(characters)
     await ctx.send(character["cardImageURL"])
     
