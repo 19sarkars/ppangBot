@@ -54,7 +54,7 @@ async def genshin(ctx):
     response = requests.get('https://genshin-app-api.herokuapp.com/api/characters?infoDataSize=[all/minimal]')
     characters = response.json()
     character = random.choice(characters)
-    await ctx.send(character['cardImageURL'])
+    await ctx.send(character.get("cardImageURL"))
     
     
 @bot.command(description="help command for ppangBot")
