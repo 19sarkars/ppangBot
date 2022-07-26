@@ -47,6 +47,12 @@ async def bread(ctx):
     response = requests.get("https://my-bao-server.herokuapp.com/api/breadpuns")
     await ctx.send(response.text[1:-1])
     
+@bot.command(name="anime", description="recommends a random anime")
+async def anime(ctx):
+    response = requests.get("https://api.jikan.moe/v4/random/anime")
+    await ctx.send(response.json()["data"]["title"])
+    await ctx.send(response.json()["data"]["images"]["jpg"]["image_url"])
+    
 @bot.command(name="ppangtan", description="sends an inspirational bts quote")
 async def bbangtan(ctx):
     response = requests.get('https://bts-quotes-api.herokuapp.com/quote/random')
