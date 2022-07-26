@@ -22,6 +22,10 @@ async def sayHi(ctx):
 async def bread(ctx):
     await ctx.send('🍞')
     
+@bot.command(name="moyai", description="sends you moyai")
+async def bread(ctx):
+    await ctx.send('🗿')
+    
 @bot.command(name="doggo", description="sends a random dog pic")
 async def dog(ctx):
     response = requests.get("https://dog.ceo/api/breeds/image/random")
@@ -44,6 +48,13 @@ async def bbangtan(ctx):
     quote = response.json()["quote"]
     member = response.json()["member"]
     await ctx.send('*{}*\n-{}'.format(quote, member))
+    
+@bot.command(name="genshin", description="rolls a random genshin character")
+async def genshin(ctx):
+    response = requests.get('https://genshin-app-api.herokuapp.com/api/characters?infoDataSize=[all/minimal]')
+    character = random.choice(response.json())
+    await ctx.send(character["cardImageURL"])
+    
     
 @bot.command(description="help command for ppangBot")
 async def help(ctx):
