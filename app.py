@@ -52,8 +52,8 @@ async def bbangtan(ctx):
 @bot.command(name="genshin", description="rolls a random genshin character")
 async def genshin(ctx):
     response = requests.get('https://genshin-app-api.herokuapp.com/api/characters?infoDataSize=[all/minimal]')
-    character = random.choice(response.json())
-    await ctx.send(character["cardImageURL"])
+    url = random.choice(response.json())["cardImageURL"]
+    await ctx.send(url)
     
     
 @bot.command(description="help command for ppangBot")
