@@ -95,38 +95,10 @@ async def hug_error(ctx, error):
     if isinstance(error, commands.BadArgument):
         await ctx.send("""Incorrect format. The command should be formatted in this way: `?hug @user`.""")
     
-''' @bot.command(name="remind", description="set a reminder")
-async def remindMe(ctx, name:str, days:int, hour:int, minute:int):
-    while True:
-        now = datetime.datetime.now()
-        then = now.replace(hour=8, minute=0)
-        if then < now:
-            then += datetime.timedelta(days=1)
-        wait_time = (then-now).total_seconds()
-        await asyncio.sleep(wait_time)
-        
-        channel = bot.get_channel()
-        await channel.send("good morbin!")
-        await asyncio.sleep(1) '''
-    
-async def goodMorning():
-    while True:
-        now = datetime.datetime.now()
-        then = now.replace(hour=8, minute=0)
-        if then < now:
-            then += datetime.timedelta(days=1)
-        wait_time = (then-now).total_seconds()
-        await asyncio.sleep(wait_time)
-        
-        channel = bot.get_channel(992416882344853517)
-        await channel.send("good morbin!")
-        await asyncio.sleep(1)
-    
     
 @bot.event
 async def on_ready():
     print(f'\n\nLogged in as: {bot.user.name} - {bot.user.id}')
-    await goodMorning()
 
 if __name__ == '__main__':
     bot.run(os.getenv('TOKEN'))
